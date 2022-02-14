@@ -10,7 +10,7 @@ pipeline {
                 sh "sed -i 's/alexbob2\\/nebula-poc:[[:digit:]]\\+/alexbob2\\/nebula-poc:${env.BUILD_NUMBER}/' nebula-poc/deployment.yaml"
                 sh "git commit -am 'Triggered Build: ${env.BUILD_NUMBER}'"
                 withCredentials([gitUsernamePassword(credentialsId: 'argocd-deployments-token', gitToolName: 'git-tool')]) {
-                    sh "git push https://github.com/alexbob/argo-cd-deployment.git main"
+                    sh "git push"
                 }
             }  
         }

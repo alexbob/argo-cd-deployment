@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        GIT_TOKEN=credentials('argocd-deployments-token')
+        GIT_TOKEN = credentials('argocd-deployments-token')
     }
     
 

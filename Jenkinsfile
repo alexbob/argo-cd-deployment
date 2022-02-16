@@ -1,5 +1,9 @@
 pipeline {
     agent any
+
+    parameters {
+        string(name: 'NEBULA_IMAGE_TAG')
+    }
     
     environment {
         GIT_TOKEN = credentials('argocd-deployments-token')
@@ -9,7 +13,8 @@ pipeline {
     stages {
         stage("Updating docker image tag") {
             steps {
-                echo "${env.NEBULA_IMAGE_TAG}"
+                
+                echo env.NEBULA_IMAGE_TAG
                 sh "git config user.email alex.bobkov@icloud.com"
                 sh "git config user.name alexbob"
                 sh "sed -i 's/alexbob2\\/nebula-poc:[[:digit:]]\\+/alexbob2\\/nebula-poc:${env.BUILD_NUMBER}/' nebula-poc/deployment.yaml"

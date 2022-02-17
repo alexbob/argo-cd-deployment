@@ -12,7 +12,7 @@ pipeline {
                 echo "In step"
                 script { 
                     def buildNumber = Jenkins.instance.getItem('argocd-deployments').getItem('main').lastSuccessfulBuild.number
-                i}
+                }
                 echo "${buildNumber}"  
 /*                sh "git config user.email alex.bobkov@icloud.com"
                 sh "git config user.name alexbob"

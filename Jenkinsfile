@@ -8,9 +8,6 @@ pipeline {
 
     stages {
         stage("Updating docker image tag") {
-            script {
-                def buildNumber = Jenkins.instance.getItem('argocd-deployments').getItem('main').lastSuccessfulBuild.number
-            }
             steps {
                 script {
                     def buildNumber = Jenkins.instance.getItem('argocd-deployments').getItem('main').lastSuccessfulBuild.number

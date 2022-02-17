@@ -8,9 +8,9 @@ pipeline {
 
     stages {
         stage("Updating docker image tag") {
+            def buildNumber = Jenkins.instance.getItem('argocd-deployments').getItem('main').lastSuccessfulBuild.number
             steps {
-                
-                echo "${env.NEBULA_IMAGE_TAG}"
+                echo "${buildNumber}"  
 /*                sh "git config user.email alex.bobkov@icloud.com"
                 sh "git config user.name alexbob"
                 sh "sed -i 's/alexbob2\\/nebula-poc:[[:digit:]]\\+/alexbob2\\/nebula-poc:${env.BUILD_NUMBER}/' nebula-poc/deployment.yaml"

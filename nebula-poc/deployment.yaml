@@ -15,7 +15,7 @@ spec:
         name: nebula-poc
     spec:
       containers:
-      - image: alexbob2/nebula-poc:57
+      - image: alexbob2/nebula-poc:58
         name: nebula-poc
         ports:
         - containerPort: 80
